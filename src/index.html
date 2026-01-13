@@ -9,31 +9,39 @@
   </head>
 
   <body>
-    <main class="container">
-      <h1>BONSAI</h1>
+    <div id="welcome" class="screen active">
+      <main class="container">
+        <h1>BONSAI</h1>
+        <p>just type :D</p>
+        <p>:help - for new?</p>
+        <p>:config- to customize</p>
+        <p>:q - exit</p>
+      
+        <p>Test version</p>
+
+       </main>
+    </div>
+
+    <div id="editor" class="screen">
+      <p>this is editor</p>
+
+    </div>
     
-      <div class="welcome-screen">
-        <button>
-          <h3>New project</h3>
-        </button>
-        <button>
-          <h3>Recent project</h3>
-        </button>
-        <button>
-          <h3>Config</h3>
-        </button>
-        <button>
-          <h3>Quit</h3>
-        </button>
-      </div>
+    <div id="config" class="screen">
+        <p>this is config</p>
+    </div>
 
-      <p>Test version</p>
+    <form class="row" id="greet-form">
+          <button type="submit">Greet</button>
+          <input id="greet-input" placeholder="Enter command" />
+    </form>
+        <p id="greet-msg"></p> 
+    
 
-      <form class="row" id="greet-form">
-        <input id="greet-input" placeholder="Enter a name..." />
-        <button type="submit">Greet</button>
-      </form>
-      <p id="greet-msg"></p>
-    </main>
+    <div id="cmdSearch">
+      <input type="command" id="search_command", placeholder="command"> 
+    </div>
+
+
   </body>
 </html>
