@@ -8,7 +8,7 @@ const isHidden = cmdLine.style.display === 'none' || cmdInput.style.display === 
 
 //text (part for writing)
 const EditorSection = document.querySelector('.editor-container');
-const CodeAreaFocus = document.getElementById('editable-text'); // get the id of the code's area
+const CodeArea = document.getElementById('editable-text'); // get the id of the code's area
 
 
 const DefaultMode = 'Normal mode';
@@ -51,8 +51,10 @@ function exitMode(){
     cmdInput.blur();
     cmdInput.value = '';
   }
-  //EditorSection.style.display = 'block';
-    EditorSection.ariaReadOnly = true;
+  if(EditorSection){
+    CodeArea.readOnly = true; //if exit, set element 'textarea' to read only
+    CodeArea.blur();
+  }
   
   CurrentMode = DefaultMode;
   console.log({CurrentMode});
@@ -72,6 +74,9 @@ function EnterCommandMode(){
       if(e.key === 'Enter'){
         const cmd = cmdInput.value.trim();
         if(cmd === ':home'){
+          if(EditorSection){
+            EditorSection.style.display = 'none';
+          }
           setScreen('welcome');
           exitMode();
         }
@@ -91,10 +96,11 @@ function EnterCommandMode(){
 function EnterInsertMode(){
 
   EditorSection.style.display = 'flex';
-  CurrentMode = instMode;
-  
-  CodeAreaFocus.focus(); // focus on the code when enter insert mode
+  CodeArea.readOnly = false;
+  CodeArea.focus(); // focus on the code when enter insert mode
 
+
+  CurrentMode = instMode;
   console.log({CurrentMode});
 }
 

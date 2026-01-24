@@ -6,6 +6,7 @@ const { invoke } = window.__TAURI__.core;
 let greetInputEl;
 let greetMsgEl;
 
+//pre-built tauri rust backend call (will delete later)
 async function greet() {
   // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
   greetMsgEl.textContent = await invoke("greet", { name: greetInputEl.value });
@@ -18,9 +19,18 @@ window.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     greet();
   });
+  
 });
 
+
 //'my code' section
+
+//testing invoke command function from Rust backend
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'o'){
+    invoke("test");
+  }
+})
 
 
 // line-counting function
@@ -61,7 +71,6 @@ export function setScreen(screen){
   document.getElementById(screen).classList.add('active');
 }
 
-//setScreen('welcome'); 
 
  
 

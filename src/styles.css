@@ -25,7 +25,7 @@
   text-align: center;
 }
 
-/*for spa router*/
+/*for spa route*/
 .screen{
   display: none;
 }
@@ -37,6 +37,9 @@
 .editor-container{
   display: none;
   
+}
+.welcome-text{
+  padding-top:10px;
 }
 
 .line-num{

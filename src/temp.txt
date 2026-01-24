@@ -1,7 +1,12 @@
 to do:
-1. change the propertie of the display the textarea since the textarea 
-will disappear if enter the normal mode in Editor part
 
-2. implement open and read file in RUST backend + command for each function
+- implement open and read file in RUST backend + command for each function
 
-# create config file for customization the editor
+- create config file for customization the editor
+- adding  save file and open recent file
+
+
+- syntex-highlighting
+-adding folder tree
+
+- adding terminal tab?
