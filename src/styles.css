@@ -24,6 +24,8 @@
   justify-content: center;
   text-align: center;
 }
+
+/*for spa router*/
 .screen{
   display: none;
 }
@@ -32,14 +34,30 @@
   display: block;
 }
 
-/*for the pre-built tauri input bar*/
-.row{
-  position: absolute;
-  bottom:0;
-  left:0;
-  width: 100%;
+.editor-container{
   display: none;
+  
 }
+
+.line-num{
+  padding-right: 8px;
+  color:gray;
+  text-align: right;
+  user-select: none;
+}
+
+textarea{
+  background-color: white;
+  flex: 1;
+  white-space: pre-wrap;
+  outline: none;
+  resize:none;
+  border: none;
+  padding: 8px;
+  line-height: 1.3;
+  overflow:auto;
+}
+
 
 #cmdSearch{
   display: none;
@@ -48,12 +66,11 @@
   left:0;
   width: 100%;
 }
+
+
 input{
-  width: 95%;
-}
-input,
-button {
-  /*border-radius: 8px;*/
+  width: 100%;
+  box-sizing: border-box;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -63,28 +80,9 @@ button {
   background-color: #ffffff;
   transition: border-color 0.25s;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-}
-
-button {
-  cursor: pointer;
-}
-
-button:hover {
-  border-color: #396cd8;
-}
-button:active {
-  border-color: #396cd8;
-  background-color: #e8e8e8;
-}
-
-input,
-button {
   outline: none;
 }
 
-#greet-input {
-  margin-right: 0px;
-}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -92,16 +90,9 @@ button {
     background-color: #2f2f2f;
   }
 
-  a:hover {
-    color: #24c8db;
-  }
 
-  input,
-  button {
+  input{
     color: #ffffff;
     background-color: #0f0f0f98;
-  }
-  button:active {
-    background-color: #0f0f0f69;
   }
 }

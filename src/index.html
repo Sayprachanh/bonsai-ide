@@ -5,10 +5,17 @@
     <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bonsai</title>
-    <script type="module" src="/main.js" defer></script>
+    <script type="module" src="js/main.js" defer></script>
   </head>
 
   <body>
+    <!--writing code area-->
+    <div class="editor-container">
+      <div id="numLine" class="line-num">1</div>
+      <textarea id="editable-text" spellcheck="false"></textarea>
+    </div>
+
+
     <div id="welcome" class="screen active">
       <main class="container">
         <h1>BONSAI</h1>
@@ -22,24 +29,26 @@
        </main>
     </div>
 
+    <!-- editor section (will use spa router)-->
     <div id="editor" class="screen">
       <p>this is editor</p>
 
     </div>
     
+    <!-- config section (will use spa router)-->
     <div id="config" class="screen">
         <p>this is config</p>
     </div>
 
-    <form class="row" id="greet-form">
-          <button type="submit">Greet</button>
+    <!--pre-built tauri form (will delete later) right now disable--> 
+    <form class="row" id="greet-form" style="display: none;">
           <input id="greet-input" placeholder="Enter command" />
     </form>
-        <p id="greet-msg"></p> 
     
 
+    <!-- search cmd part-->
     <div id="cmdSearch">
-      <input type="command" id="search_command", placeholder="command"> 
+      <input type="command" id="search_command", placeholder=""> 
     </div>
 
 
