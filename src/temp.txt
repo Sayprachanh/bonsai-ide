@@ -1,5 +1,4 @@
 to do:
-
 - implement open and read file in RUST backend + command for each function
 
 - create config file for customization the editor
@@ -10,3 +9,12 @@ to do:
 -adding folder tree
 
 - adding terminal tab?
+
+temp:
+- function for set the path to file?
+    (solve: ask user to set it when first install)
+
+- create file | get the input fgrom the textarea to write in the file ✅
+- open the file in the editor mode | save the file
+- link the file to the complier
+- mode display in the bottom

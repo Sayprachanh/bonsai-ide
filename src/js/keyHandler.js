@@ -1,6 +1,5 @@
 import { setScreen } from '/js/main.js';
 
-
 const cmdLine = document.getElementById('cmdSearch');
 const cmdInput = document.getElementById('search_command');
 const isHidden = cmdLine.style.display === 'none' || cmdInput.style.display === '';

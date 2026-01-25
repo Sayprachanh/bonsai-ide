@@ -1,13 +1,16 @@
-// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-#[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
-}
 
+// #[tauri::command]
+// fn greet(name: &str) -> String {
+//     format!("Hello, {}! You've been greeted from Rust!", name)
+// }
+
+use std::fs;
 //test custom command
+
 #[tauri::command]
-fn test(){
-    println!("hello world");
+fn test(file_path: String, contents: String) -> Result<String, String> {
+    let _ = fs::write(&file_path, &contents).map_err(|err| err.to_string())?;
+    Ok(format!("File created at: {}", file_path))
 }
 
 

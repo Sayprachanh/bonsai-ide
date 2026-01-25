@@ -1,43 +1,18 @@
 import { handlerModePress } from '/js/keyHandler.js';
 
-
 const { invoke } = window.__TAURI__.core;
-
-let greetInputEl;
-let greetMsgEl;
-
-//pre-built tauri rust backend call (will delete later)
-async function greet() {
-  // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-  greetMsgEl.textContent = await invoke("greet", { name: greetInputEl.value });
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-  greetInputEl = document.querySelector("#greet-input");
-  greetMsgEl = document.querySelector("#greet-msg");
-  document.querySelector("#greet-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    greet();
-  });
-  
-});
-
 
 //'my code' section
 
 //testing invoke command function from Rust backend
-document.addEventListener('keydown', (e) => {
-  if(e.key === 'o'){
-    invoke("test");
-  }
-})
 
-
-// line-counting function
 const CodeArea = document.getElementById('editable-text');
 const NumberLine = document.getElementById('numLine');
 
+const filePath = 'C:/test.txt';
 
+
+// line-counting function
 function updateLine(){
   const lineCount = CodeArea.value.split('\n').length || 1;
   
@@ -51,6 +26,7 @@ function updateLine(){
 
 CodeArea.addEventListener('input', updateLine);
 
+
 //handling keymap
 document.addEventListener('keydown', (e) =>{
   handlerModePress(e);
@@ -62,8 +38,6 @@ const AppState = {
   screen: 'welcome', mode:'normal'
 };
 
-
-
 export function setScreen(screen){
   AppState.screen = screen;
 
@@ -73,4 +47,48 @@ export function setScreen(screen){
 
 
  
+//write file func (save)
+async function writefile(){
+  const contents = CodeArea.value; // recieving the value of 'textarea' element
+  console.log(contents)
+  const func = await invoke("test", {filePath, contents});
+  console.log(func);
+}
 
+// document.getElementById("test_button").addEventListener("click", async() => {
+//   try{
+//     const res = await writefile();
+//     console.log(res);
+//   }catch (error){
+//     console.error("error: ", error);
+//   }
+//   })
+
+//open file
+// use Map (frontend) for track what file are open right now
+const openFiles = new Map();
+
+openFiles.set("src/main.c", {
+  content: "int main() {}\n",
+  dirty: false
+});
+
+console.log(openFiles);
+
+// async function openFile(filePath){
+//   if(openFiles.has(filePath)){
+
+//     return;
+//   }
+
+//   const contents = 
+// }
+
+
+// open file
+  // if file exist: just open read that file
+  // else: create file 
+
+// write(save) file
+// create file
+// edit file
